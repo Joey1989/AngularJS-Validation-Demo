@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>The sign up</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href = "http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>	
+	    input.ng-invalid.ng-dirty {
+	    	border:3px solid red;
+	    }
+	    .invalidIndicator{
+	    	color:red;
+	    }
+    </style>
+</head>
+<body ng-app="myApp" background="images/backgroundpic.jpeg">
+	<!-- navigation bar -->
+	<nav class="navbar navbar-inverse navbar-fixed-top" style="opacity:0.8;">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#/listBuddy">Welcome</a>
+			</div>
+			<div>
+				<ul class="nav navbar-nav">
+					<li><a href="#/listBuddy">Sign up</a></li>
+				</ul> 
+			</div>
+		</div>
+	</nav>
+	<!-- end of navigation bar -->
+    <!-- ng-view -->
+	<div ng-view>
+		<h1>empty content</h1>
+			<div data-ui-view="page-content">
+			<div ng-include="views/signup.html"></div>
+		</div>
+	</div>
+	<!-- end of ng-view -->
+    <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <script src= "http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular-route.min.js"></script>
+    <script src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.13.0.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src="scripts/app.js"></script>
+    <script type='text/javascript' src="scripts/controllers/signUpCtrl.js"></script>
+    <script type='text/javascript' src="scripts/controllers/successCtrl.js"></script>
+    <script type='text/javascript' src="scripts/services/userService.js"></script>
+</body>
+</html>

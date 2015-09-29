@@ -1,0 +1,67 @@
+<!-- this view is the sign up view -->
+<div class="container" style="padding-top:80px">
+	<div class="jumbotron">
+		<div style="padding-bottom:20px;">
+		    <h2>Please sign up :-)</h2>
+		    <p>For testing, a valid user login data is "Joey@gmail.com", "722198"</p>
+	    </div>
+		<!-- Sign up form -->
+	    <form name="frm" ng-submit="frmSubmit()" novalidate>
+	    	<!-- filed of user name -->
+	    	<div class="form-group">
+				<label><span class="glyphicon glyphicon-user"></span>User Name</label>
+				<input type="email" name="email"  class="form-control" ng-model="user.uName" ng-maxlength="56" ng-enter="frmSubmit()" placeholder="Enter User Email" required>
+				<span ng-show="frm.email.$dirty && frm.email.$error.required"><span class="invalidIndicator">Required to be filled.</span></span>
+				<span ng-show="frm.email.$dirty && frm.email.$error.email"><span class="invalidIndicator">Please input a valid Email.</span></span>
+				<span ng-show="frm.email.$dirty && frm.email.$error.maxlength"><span class="invalidIndicator">Your Email is too long.</span></span>
+				<span ng-show="frm.email.$dirty && frm.email.$valid"><span class="glyphicon glyphicon-ok" style="color:green"></span></span>
+			</div>
+			<!-- end of field -->
+			<!-- filed of password -->
+			<div class="form-group">
+				<label><span class="glyphicon glyphicon-info-sign"></span>PassWord</label>
+				<input type="password" name="password" class="form-control" ng-model="user.psd" placeholder="Enter PassWord" ng-enter="frmSubmit()"
+				ng-minlength="6" required>
+				<span ng-show="frm.password.$dirty && frm.password.$error.required"><span class="invalidIndicator">Required to be filled.</span></span>
+				<span ng-show="frm.password.$dirty && frm.password.$error.minlength"><span class="invalidIndicator">Your Email is too short.</span></span>
+				<span ng-show="frm.password.$dirty && frm.password.$valid"><span class="glyphicon glyphicon-ok" style="color:green"></span></span>
+			</div>
+			<!-- end of field -->
+			<!-- field of first name -->
+			<div class="form-group">
+				<label><span class="glyphicon glyphicon-edit"></span>First Name</label>
+				<input type="text" class="form-control" name="fName" ng-model="user.fName" ng-pattern="/^[a-zA-Z]{0,50}$/" ng-enter="frmSubmit()"
+				placeholder="Enter First Name" required>
+				<span ng-show="frm.fName.$dirty && frm.fName.$error.required"><span class="invalidIndicator">Required to be filled.</span></span>
+				<span ng-show="frm.fName.$error.pattern"><span class="invalidIndicator">Please input letters only(&lt 50 letters).</span></span>
+				<span ng-show="frm.fName.$dirty && frm.fName.$valid"><span class="glyphicon glyphicon-ok" style="color:green"></span></span>
+			</div>
+			<!-- end of field -->
+			<!-- field of last name -->
+			<div class="form-group">
+				<label><span class="glyphicon glyphicon-edit"></span>Last Name(optional)</label>
+				<input type="text" class="form-control" name="lName" ng-model="user.lName" ng-pattern="/^[a-zA-Z]{0,50}$/" ng-enter="frmSubmit()"
+				placeholder="Enter Last Name">
+				<span ng-show="frm.lName.$dirty && frm.lName.$error.required"><span class="invalidIndicator">Required to be filled.</span></span>
+				<span ng-show="frm.lName.$error.pattern"><span class="invalidIndicator">Please input letters only(&lt 50 letters).</span></span>
+				<span ng-show="frm.lName.$dirty && frm.lName.$valid"><span class="glyphicon glyphicon-ok" style="color:green"></span></span>
+			</div>
+			<!-- end of field -->
+			<!-- field of birthday -->
+			<div class="form-group">
+				<label><span class="glyphicon glyphicon-calendar"></span>Birthday</label>
+				<input type="text" class="form-control" name="birthday" placeholder="Enter in fomat MM/DD/YYYY" ng-model="user.birthday" ng-pattern="/(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.](18|19|20)\d\d/" ng-enter="frmSubmit()" required>
+				<span ng-show="frm.birthday.$dirty && frm.birthday.$error.required"><span class="invalidIndicator">Required to be filled.</span></span>
+				<span ng-show="frm.birthday.$dirty && frm.birthday.$error.pattern"><span class="invalidIndicator">Please input DOB in fomat "MM/DD/YYYY"</span></span>
+				<span ng-show="frm.birthday.$dirty && ageFail"><span class="invalidIndicator">You have to be between 14~150 years old.</span></span>
+				<span ng-show="frm.birthday.$dirty && frm.birthday.$valid && !ageFail"><span class="glyphicon glyphicon-ok" style="color:green"></span></span>
+				<!-- end of field -->
+			</div>
+			<!-- submit button -->
+			<input type="submit" class="btn btn-success" value="Submit" ng-disabled="frm.email.$invalid || frm.password.$invalid || frm.fName.$invalid || frm.lName.$invalid || frm.birthday.$invalid || ageFail">
+			<!-- clear button -->
+			<input type="button" class="btn btn-danger" ng-click="clearInput()" value="Clear">
+	    </form>    
+	    <!-- end of sign up form  -->
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<!-- this view is for successful log in -->
+<div class="container" style="padding-top:80px">
+	<div class="jumbotron">
+		<h1>Welcome! {{user.fName}}</h1>
+		<ul>
+			<li>User Name: {{user.uName}}</li>
+			<li>Password: {{user.psd}}</li>
+			<li>First Name: {{user.fName}}</li>
+			<li>Last Name: {{user.lName}}</li>
+			<li>Birthday: {{user.birthday}}</li>
+			<li>Bio: {{user.bio}}</li>
+			<li>Interests: {{user.interests}}</li>
+		</ul>
+		<!-- button to enable adding expand info -->
+		<button class="btn btn-success" ng-click="expFrofile()"><span class="glyphicon glyphicon-plus "></span >EXpand the profile</button>
+		<div ng-show="showExpand">
+			Bio: <input type="text" placeholder="Enter the bio" ng-model="temp.bio"></input>
+			Interests: <input type="text" placeholder="Enter the interests" ng-model="temp.interests"></input>
+			<button class="btn btn-info" ng-click="saveExpand()">Save</button>
+		</div>
+	</div>
+</div>
